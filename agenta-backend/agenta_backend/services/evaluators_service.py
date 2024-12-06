@@ -811,6 +811,7 @@ def compare_jsons(
     flattened_app_output = normalize_keys(flattened_app_output, case_insensitive_keys)
 
     for key in keys:
+        key = key.lower() if case_insensitive_keys else key
         ground_truth_value = flattened_ground_truth.get(key, None)
         llm_app_output_value = flattened_app_output.get(key, None)
 
